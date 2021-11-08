@@ -8,4 +8,5 @@ export const searchTrending = createActions({
 export const search = createActions({
   searchRequest: (payload) => payload,
   searchSuccess: (payload) => payload,
+  searchFailure: undefined,
 });

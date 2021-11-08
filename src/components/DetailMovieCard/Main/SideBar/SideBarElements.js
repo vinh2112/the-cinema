@@ -38,6 +38,10 @@ export const Wrapper = styled.div`
   &:hover {
     overflow-y: auto;
   }
+
+  @media (min-width: 1600px) {
+    max-height: 700px;
+  }
 `;
 
 export const SocialLinks = styled.div`

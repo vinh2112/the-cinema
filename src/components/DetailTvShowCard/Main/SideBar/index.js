@@ -1,17 +1,5 @@
 import React from "react";
-import {
-  Container,
-  DetailInfo,
-  DetailItem,
-  KeywordItem,
-  KeywordList,
-  KeywordSection,
-  SocialItemLink,
-  SocialItemWrapper,
-  SocialLinks,
-  Title,
-  Wrapper,
-} from "./SideBarElements";
+import { Container, DetailInfo, DetailItem, KeywordItem, KeywordList, KeywordSection, SocialItemLink, SocialItemWrapper, SocialLinks, Title, Wrapper } from "./SideBarElements";
 import { Icon } from "@iconify/react";
 import { useSelector } from "react-redux";
 import { tvState$ } from "redux/selectors";
@@ -33,10 +21,7 @@ export default function SideBar() {
             <SocialLinks>
               {detail.external_ids.facebook_id && (
                 <SocialItemWrapper>
-                  <SocialItemLink
-                    href={`https://www.facebook.com/${detail.external_ids.facebook_id}`}
-                    className="facebook"
-                  >
+                  <SocialItemLink href={`https://www.facebook.com/${detail.external_ids.facebook_id}`} className="facebook">
                     <span></span>
                   </SocialItemLink>
                 </SocialItemWrapper>
@@ -44,10 +29,7 @@ export default function SideBar() {
 
               {detail.external_ids.twitter_id && (
                 <SocialItemWrapper>
-                  <SocialItemLink
-                    href={`https://twitter.com/${detail.external_ids.twitter_id}`}
-                    className="twitter"
-                  >
+                  <SocialItemLink href={`https://twitter.com/${detail.external_ids.twitter_id}`} className="twitter">
                     <span></span>
                   </SocialItemLink>
                 </SocialItemWrapper>
@@ -55,10 +37,7 @@ export default function SideBar() {
 
               {detail.external_ids.instagram_id && (
                 <SocialItemWrapper>
-                  <SocialItemLink
-                    href={`https://instagram.com/${detail.external_ids.instagram_id}`}
-                    className="instagram"
-                  >
+                  <SocialItemLink href={`https://instagram.com/${detail.external_ids.instagram_id}`} className="instagram">
                     <span></span>
                   </SocialItemLink>
                 </SocialItemWrapper>
@@ -83,34 +62,13 @@ export default function SideBar() {
               </DetailItem>
 
               <DetailItem>
-                <div className="title">Network</div>
-                {detail.networks.map((network) => (
-                  <img
-                    key={network.id}
-                    className="network-img"
-                    src={`https://image.tmdb.org/t/p/w300/${network.logo_path}`}
-                    alt="network"
-                  />
-                ))}
-              </DetailItem>
-
-              <DetailItem>
                 <div className="title">Ngôn ngữ</div>
-                <div className="content">
-                  {
-                    detail.spoken_languages.find(
-                      (language) =>
-                        language.iso_639_1 === detail.original_language
-                    ).english_name
-                  }
-                </div>
+                <div className="content">{detail.spoken_languages.find((language) => language.iso_639_1 === detail.original_language).english_name}</div>
               </DetailItem>
 
               <DetailItem>
                 <div className="title">Ngày phát sóng</div>
-                <div className="content">
-                  {moment(detail.first_air_date).format("L")}
-                </div>
+                <div className="content">{moment(detail.first_air_date).format("L")}</div>
               </DetailItem>
             </DetailInfo>
 
@@ -125,9 +83,7 @@ export default function SideBar() {
                     </KeywordItem>
                   ))
                 ) : (
-                  <div style={{ fontSize: "14px" }}>
-                    Không có từ khóa cho phim
-                  </div>
+                  <div style={{ fontSize: "14px" }}>Không có từ khóa cho phim</div>
                 )}
               </KeywordList>
             </KeywordSection>

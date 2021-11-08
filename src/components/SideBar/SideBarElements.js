@@ -4,7 +4,7 @@ export const MainMenu = styled.div`
   position: fixed;
   top: 0;
   left: 0;
-  width: 225px;
+  width: 68px;
   height: 100%;
   padding: calc(60px + 15px) 0 0 0;
   transition: all 0.1s ease;
@@ -14,7 +14,7 @@ export const MainMenu = styled.div`
   background-color: ${({ theme }) => theme.primary};
 
   #offnav-menu:checked + .mainWrapper & {
-    width: 68px;
+    width: 225px;
   }
 
   &:hover {
@@ -36,19 +36,27 @@ export const MainMenu = styled.div`
   }
 
   @media (max-width: 1100px) {
-    width: 200px;
+    #offnav-menu:checked + .mainWrapper & {
+      width: 200px;
+    }
   }
 
   @media (min-width: 1440px) {
-    width: 280px;
+    #offnav-menu:checked + .mainWrapper & {
+      width: 280px;
+    }
   }
 
   @media (min-width: 1600px) {
-    width: 300px;
+    #offnav-menu:checked + .mainWrapper & {
+      width: 300px;
+    }
   }
 
   @media (min-width: 1920px) {
-    width: 340px;
+    #offnav-menu:checked + .mainWrapper & {
+      width: 340px;
+    }
   }
 `;
 
@@ -88,8 +96,8 @@ export const NavMenu = styled.ul`
     transition: all 0.1s ease;
   }
 
-  #offnav-menu:checked + .mainWrapper ${MainMenu} & li > * .name,
-  #offnav-menu:checked + .mainWrapper ${MainMenu} & li > * .drop {
+  #offnav-menu:not(:checked) + .mainWrapper ${MainMenu} & li > * .name,
+  #offnav-menu:not(:checked) + .mainWrapper ${MainMenu} & li > * .drop {
     display: none;
   }
 
@@ -97,8 +105,8 @@ export const NavMenu = styled.ul`
     margin-left: 0;
   }
 
-  #offnav-menu:checked + .mainWrapper ${MainMenu} & li > * .name,
-  #offnav-menu:checked + .mainWrapper ${MainMenu} & li > * .drop {
+  #offnav-menu:not(:checked) + .mainWrapper ${MainMenu} & li > * .name,
+  #offnav-menu:not(:checked) + .mainWrapper ${MainMenu} & li > * .drop {
     display: block;
   }
 
@@ -128,7 +136,7 @@ export const NavItem = styled.li`
   position: relative;
   padding: 10px 20px 10px 25px;
 
-  #offnav-menu:checked ~ & .name {
+  #offnav-menu:not(:checked) ~ & .name {
     display: none;
   }
 
@@ -238,11 +246,11 @@ export const SubMenu = styled.ul`
     visibility: visible;
   }
 
-  #offnav-menu:checked + .mainWrapper ${MainMenu} ${NavMenu} & {
+  #offnav-menu:not(:checked) + .mainWrapper ${MainMenu} ${NavMenu} & {
     padding: 0;
   }
 
-  #offnav-menu:checked + .mainWrapper ${MainMenu} ${NavMenu} & li {
+  #offnav-menu:not(:checked) + .mainWrapper ${MainMenu} ${NavMenu} & li {
     height: 0;
     padding: 0 20px 0 43px;
     opacity: 0;
@@ -250,38 +258,16 @@ export const SubMenu = styled.ul`
   }
 
   @media (max-width: 800px) {
-    #offnav-menu:checked
-      + .mainWrapper
-      ${MainMenu}
-      ${NavMenu}
-      #off-submenu1:checked
-      ~ &
-      li,
-    #offnav-menu:checked
-      + .mainWrapper
-      ${MainMenu}
-      ${NavMenu}
-      #off-submenu2:checked
-      ~ &
-      li {
+    #offnav-menu:not(:checked) + .mainWrapper ${MainMenu} ${NavMenu} #off-submenu1:checked ~ & li,
+    #offnav-menu:not(:checked) + .mainWrapper ${MainMenu} ${NavMenu} #off-submenu2:checked ~ & li {
       height: 38px;
       padding: 10px 20px 10px 43px;
       opacity: 1;
       visibility: visible;
     }
 
-    #offnav-menu:checked
-      + .mainWrapper
-      ${MainMenu}
-      ${NavMenu}
-      #off-submenu1:checked
-      ~ &,
-    #offnav-menu:checked
-      + .mainWrapper
-      ${MainMenu}
-      ${NavMenu}
-      #off-submenu2:checked
-      ~ & {
+    #offnav-menu:not(:checked) + .mainWrapper ${MainMenu} ${NavMenu} #off-submenu1:checked ~ &,
+    #offnav-menu:not(:checked) + .mainWrapper ${MainMenu} ${NavMenu} #off-submenu2:checked ~ & {
       padding: 10px 0 0;
     }
   }

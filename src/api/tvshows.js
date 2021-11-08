@@ -2,10 +2,10 @@ import axios from "axios";
 import * as CONSTANT from "constant";
 
 const TvShowAPI = {
-  fetchTvShows: async () => {
+  fetchTvShows: async (payload) => {
     try {
       const res = await axios.get(
-        `${CONSTANT.URL_TVSHOW}/popular${CONSTANT.API_KEY}${CONSTANT.LANGUAGE}&page=1`
+        `${CONSTANT.URL_TVSHOW}/${payload.filter}${CONSTANT.API_KEY}${CONSTANT.LANGUAGE}&page=1`
       );
       return res;
     } catch (error) {

@@ -15,12 +15,11 @@ export const CollectionWrapper = styled.div`
   flex-wrap: wrap;
   padding: 0 20px;
 
-  height: 258px;
+  height: 300px;
   border-radius: 8px;
   overflow: hidden;
   background-image: ${({ url }) =>
-      url &&
-      "linear-gradient(to right,rgba(37, 37, 37, 1) 10%,rgba(37, 37, 37, 0.4) 100%), "}
+      url && "linear-gradient(to right,rgba(37, 37, 37, 1) 10%,rgba(37, 37, 37, 0.4) 100%), "}
     url(${({ url }) => (url ? url : NoneCollection)});
 
   background-color: #ccc;

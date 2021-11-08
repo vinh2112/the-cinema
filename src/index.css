@@ -4,5 +4,7 @@
 
 :root {
   --primary-color: #fe3456;
+  --white-color: #fefefe;
+  --black-color: #161617;
   --linear-gradient: 120deg, #f1d700, #fe3456;
 }

@@ -1,25 +1,16 @@
 import { Icon } from "@iconify/react";
 import React from "react";
-import {
-  MainMenu,
-  NavMenu,
-  WidgetWrapper,
-  NavItem,
-  ItemLink,
-  ItemLabel,
-  SubMenu,
-  SubMenuItem,
-  SubMenuLink,
-  FullScreenOverLay,
-} from "./SideBarElements";
+import { MainMenu, NavMenu, WidgetWrapper, NavItem, ItemLink, ItemLabel, SubMenu, SubMenuItem, SubMenuLink, FullScreenOverLay } from "./SideBarElements";
 
 export default function SideBar() {
   const handleShowSideBar = (e) => {
     if (window.innerWidth >= 800) {
-      if (document.getElementById("offnav-menu").checked) {
+      if (!document.getElementById("offnav-menu").checked) {
         e.preventDefault();
-        document.getElementById("offnav-menu").checked = false;
-        document.getElementById(e.target.dataset.type).checked = true;
+        document.getElementById("offnav-menu").checked = true;
+        if (e.target.dataset.type) {
+          document.getElementById(e.target.dataset.type).checked = true;
+        }
       }
     }
   };
@@ -28,7 +19,7 @@ export default function SideBar() {
     <MainMenu>
       <WidgetWrapper>
         <NavMenu>
-          <NavItem>
+          <NavItem className="break">
             <ItemLink to="/">
               <Icon icon="clarity:home-line" />
               <span className="name">Trang chủ</span>
@@ -42,19 +33,15 @@ export default function SideBar() {
               <span data-type="off-submenu1" className="name">
                 Phim
               </span>
-              <Icon
-                data-type="off-submenu1"
-                className="drop"
-                icon="akar-icons:chevron-down"
-              />
+              <Icon data-type="off-submenu1" className="drop" icon="akar-icons:chevron-down" />
             </ItemLabel>
 
             <SubMenu>
               <SubMenuItem>
-                <SubMenuLink to="#">Xem nhiều</SubMenuLink>
+                <SubMenuLink to="/movie/popular">Xem nhiều</SubMenuLink>
               </SubMenuItem>
               <SubMenuItem>
-                <SubMenuLink to="#">Top rated</SubMenuLink>
+                <SubMenuLink to="/movie/top-rated">Top rated</SubMenuLink>
               </SubMenuItem>
             </SubMenu>
           </NavItem>
@@ -66,11 +53,7 @@ export default function SideBar() {
               <span data-type="off-submenu2" className="name">
                 Tv Shows
               </span>
-              <Icon
-                data-type="off-submenu2"
-                className="drop"
-                icon="akar-icons:chevron-down"
-              />
+              <Icon data-type="off-submenu2" className="drop" icon="akar-icons:chevron-down" />
             </ItemLabel>
 
             <SubMenu>

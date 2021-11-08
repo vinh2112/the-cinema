@@ -83,7 +83,7 @@ export default function Header() {
               id="search-input"
               type="text"
               value={value}
-              autocomplete="off"
+              autoComplete="off"
               placeholder="Tìm kiếm"
               onChange={handleSearch}
               onFocus={handleSearchTrending}
@@ -103,20 +103,12 @@ export default function Header() {
               {trending &&
                 !value &&
                 trending.slice(0, 10).map((item) => {
-                  return (
-                    <SearchItem key={item.id} type="trending" info={item} />
-                  );
+                  return <SearchItem key={item.id} type="trending" info={item} />;
                 })}
               {data &&
                 value &&
                 data.slice(0, 10).map((item) => {
-                  return (
-                    <SearchItem
-                      key={item.id}
-                      type={item.media_type}
-                      info={item}
-                    />
-                  );
+                  return <SearchItem key={item.id} type={item.media_type} info={item} />;
                 })}
             </SearchResults>
           </SearchForm>

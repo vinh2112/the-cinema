@@ -28,10 +28,10 @@ export const GlobalStyles = createGlobalStyle`
     }
     
     body{
-        position: relative;
+        /* position: relative; */
         background: ${({ theme }) => theme.secondary};
         color: ${({ theme }) => theme.textColor};
-        min-height: 100vh;
+        /* min-height: 100vh; */
         font-family: 'Nunito Sans', sans-serif;
         transition: all 0.1s ease;
     }
@@ -63,5 +63,39 @@ export const GlobalStyles = createGlobalStyle`
 
     ul {
         list-style: none;
+    }
+
+    .swiper-button-next,
+    .swiper-button-prev {
+        color: var(--primary-color);
+        width: 50px;
+        height: 100%;
+        top: 0;
+        margin-top: 0;
+        background: rgba(0,0,0,0.4);
+        transition: background 0.2s ease;
+    }
+
+    .swiper-pagination-bullet-active {
+        background: var(--primary-color);
+
+    }
+
+    .swiper-button-disabled {
+        background: unset;
+        display: none;
+    }
+
+    .swiper-button-next:hover,
+    .swiper-button-prev:hover {
+        background: rgba(0,0,0,0.6);
+    }
+
+    .swiper-button-next {
+        right: 0;
+    }
+
+    .swiper-button-prev {
+        left: 0;
     }
 `;

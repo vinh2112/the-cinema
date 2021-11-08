@@ -1,8 +1,18 @@
 import { INIT_STATE } from "constant";
-import { getType, getTvShowDetail } from "redux/actions";
+import { getType, getTvShowDetail, getTvShowHomePage } from "redux/actions";
 
 export default function tvShowReducers(state = INIT_STATE.tvshows, action) {
   switch (action.type) {
+    case getType(getTvShowHomePage.getTvShowHomePageRequest):
+      return {
+        ...state,
+      };
+    case getType(getTvShowHomePage.getTvShowHomePageSuccess):
+      return {
+        ...state,
+        trending: action.payload.trending,
+        onTheAir: action.payload.onTheAir,
+      };
     case getType(getTvShowDetail.getTvShowDetailRequest):
       return {
         ...state,

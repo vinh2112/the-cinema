@@ -1,101 +1,58 @@
 import { Link } from "react-router-dom";
 import styled, { keyframes } from "styled-components";
 
-const fadeIn = keyframes`
-  to {
-    filter: blur(0);
-  }
-`;
-
 const fadeOut = keyframes`
-    from {
-        transform: scale(1);
-        opacity: 0.8;
+    0% {
+      transform: scale(1);
+      opacity: 0.8;
     }
-    to {
-        transform: scale(1.6);
-        opacity: 0;
+    100% {
+      transform: scale(1.6);
+      opacity: 0;
+      box-shadow: inset 0px 0px 10px 0 rgba(255 255 255 / 100%);
     }
 `;
 
-export const Container = styled.li`
-  flex-shrink: 0;
+export const Container = styled.div`
   position: relative;
-  width: calc(20% - 8px);
+  width: 100%;
+  padding-bottom: 148%;
+  border-radius: 4px;
   overflow: hidden;
   transition: all 0.1s ease;
-
-  &.lg {
-    @media (max-width: 1100px) {
-      width: calc(25% - 7.5px);
-    }
-
-    @media (max-width: 800px) {
-      width: calc(33.33% - 6.5px);
-    }
-
-    @media (max-width: 640px) {
-      width: calc(50% - 5.5px);
-    }
-
-    & + & {
-      margin-left: 10px;
-    }
-  }
-
-  &.sm {
-    width: calc(25% - 7.5px);
-
-    @media (max-width: 1100px) {
-      width: calc(33.33% - 6.666px);
-    }
-
-    @media (max-width: 1000px) {
-      width: calc(50% - 10px);
-      #offnav-menu:checked + .mainWrapper & {
-        width: calc(33.33% - 6.666px);
-      }
-    }
-
-    @media (max-width: 1000px) {
-      width: calc(33.33% - 6.666px);
-
-      #offnav-menu:checked + .mainWrapper & {
-        width: calc(33.33% - 6.666px);
-      }
-    }
-  }
 `;
 
 export const Wrapper = styled(Link)`
-  position: relative;
+  position: absolute;
+  inset: 0;
   display: flex;
-  width: 100%;
   height: 100%;
   z-index: 1;
   cursor: pointer;
 `;
 
 export const Poster = styled.img`
+  position: absolute;
+  inset: 0;
   width: 100%;
   height: 100%;
   object-fit: cover;
-  filter: blur(4px);
-  transition: all 0.3s ease;
-  animation: ${fadeIn} 0.2s linear forwards;
+  transition: all 0.3s ease 0s;
 `;
 
 export const OverLay = styled.div`
   position: absolute;
   bottom: 0;
   width: 100%;
-  height: 60px;
+  height: 100%;
   padding: 10px;
-  background-color: rgba(0, 0, 0, 0.5);
-  transition: all 0.3s ease;
+  background: rgba(0, 0, 0, 0.5);
+  opacity: 0;
+  transition: all 0.3s ease 0s;
 
   ${Container}:hover & {
-    height: 100%;
+    opacity: 1;
+    background: rgba(11, 11, 11, 0.8);
   }
 `;
 
@@ -141,6 +98,7 @@ export const PlayButton = styled.div`
     background-color: transparent;
     border: 1.5px solid #fefefe;
     animation: ${fadeOut} 2s infinite ease-out forwards;
+    box-shadow: inset 0px 0px 10px 0 rgba(255 255 255 / 30%);
   }
 `;
 

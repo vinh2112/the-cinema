@@ -66,7 +66,7 @@ export const Certification = styled.span`
   display: inline-block;
   padding: 5px 10px;
   background: -webkit-linear-gradient(var(--linear-gradient));
-  border-radius: 2px;
+  border-radius: 4px;
   font-size: 20px;
   font-weight: 700;
   color: #fefefe;
@@ -115,7 +115,7 @@ export const GenreLink = styled(Link)`
   }
 `;
 
-export const Rating = styled.div``;
+export const RatingWrapper = styled.div``;
 
 export const Info = styled.div`
   margin-top: 20px;

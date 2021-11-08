@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import {
   Container,
   Detail,
@@ -9,12 +9,13 @@ import {
   Poster,
   PosterWrapper,
   ProducedBy,
-  Rating,
+  RatingWrapper,
   Title,
   Wrapper,
 } from "./DetailHeaderElement";
 import "moment/locale/vi";
 import moment from "moment";
+import { Rating } from "@mui/material";
 import * as CONTANT from "constant";
 import { tvState$ } from "redux/selectors";
 import { useSelector } from "react-redux";
@@ -38,12 +39,14 @@ export default function DetailHeader() {
   //   getRegionUS(detail?.release_dates?.results);
   // }, [detail]);
 
+  useEffect(() => {
+    if (detail) document.title = "The CINEMA | " + detail.name;
+  }, [detail]);
+
   return (
     <>
       {detail && (
-        <Container
-          url={`https://image.tmdb.org/t/p/original${detail.backdrop_path}`}
-        >
+        <Container url={`https://image.tmdb.org/t/p/original${detail.backdrop_path}`}>
           <Wrapper>
             <DetailMovie>
               <PosterWrapper>
@@ -66,12 +69,21 @@ export default function DetailHeader() {
                     ))}
                   </div>
 
+                  <RatingWrapper>
+                    <Rating
+                      name="read-only"
+                      precision={0.5}
+                      value={detail.vote_average}
+                      max={10}
+                      size="large"
+                      readOnly
+                    />
+                  </RatingWrapper>
+
                   <div className="runtime">
                     <span>Thời lượng: </span> {detail.episode_run_time} phút
                   </div>
                 </Title>
-
-                <Rating></Rating>
 
                 <Info>
                   <div className="title">Nội dung</div>

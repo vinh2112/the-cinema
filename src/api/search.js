@@ -12,10 +12,10 @@ const SearchAPI = {
       return error.response;
     }
   },
-  getGenres: async () => {
+  getGenres: async (payload) => {
     try {
       const res = await axios.get(
-        `${CONSTANT.URL_GENRES_MOVIE}${CONSTANT.API_KEY}${CONSTANT.LANGUAGE}`
+        `${CONSTANT.URL_GENRES}${payload}/list${CONSTANT.API_KEY}${CONSTANT.LANGUAGE}`
       );
       return res;
     } catch (error) {

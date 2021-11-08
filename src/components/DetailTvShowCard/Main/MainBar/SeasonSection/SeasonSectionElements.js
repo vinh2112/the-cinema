@@ -6,6 +6,8 @@ export const Container = styled.div`
   border-top: 1px solid #88888855;
   padding-top: 20px;
   padding-bottom: 30px;
+  /* height: 300px;
+  overflow: hidden; */
 `;
 
 export const Title = styled.div`
@@ -21,14 +23,10 @@ export const ListSeason = styled.div`
 `;
 
 export const SeasonWrapper = styled.div`
-  display: flex;
-  flex-wrap: wrap;
   width: 100%;
   min-height: 220px;
   max-height: 500px;
-  gap: 20px;
   overflow: hidden;
-  overflow-y: auto;
 `;
 
 export const Season = styled.div`

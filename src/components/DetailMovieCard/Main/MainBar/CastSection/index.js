@@ -1,16 +1,5 @@
 import React from "react";
-import {
-  Cast,
-  Character,
-  Container,
-  Info,
-  ListCasts,
-  OriginalName,
-  Photo,
-  PhotoWrapper,
-  Title,
-  Wrapper,
-} from "./CastSectionElements";
+import { Cast, Character, Container, Info, ListCasts, OriginalName, Photo, PhotoWrapper, Title, Wrapper } from "./CastSectionElements";
 import NoneAvatar from "images/NoneAvatar.svg";
 
 export default function CastSection({ casts }) {
@@ -22,13 +11,7 @@ export default function CastSection({ casts }) {
           {casts.slice(0, 11).map((cast) => (
             <Cast key={cast.id}>
               <PhotoWrapper to="#">
-                <Photo
-                  src={
-                    cast.profile_path
-                      ? `https://image.tmdb.org/t/p/w300/${cast.profile_path}`
-                      : NoneAvatar
-                  }
-                />
+                <Photo src={cast.profile_path ? `https://image.tmdb.org/t/p/w300/${cast.profile_path}` : NoneAvatar} />
               </PhotoWrapper>
               <Info>
                 <OriginalName to="#">{cast.name}</OriginalName>

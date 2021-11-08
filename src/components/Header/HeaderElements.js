@@ -123,7 +123,7 @@ export const Logo = styled(Link)`
     overflow: hidden;
     white-space: nowrap;
     text-overflow: ellipsis;
-    font-size: 20px;
+    font-size: 24px;
     font-weight: 700;
     background: -webkit-linear-gradient(var(--linear-gradient));
     -webkit-background-clip: text;
@@ -226,8 +226,7 @@ export const SearchClose = styled.button`
   visibility: hidden;
   filter: brightness(0.5);
 
-  ${SearchInput}:focus ~ &,
-  ${SearchInput}:valid ~ & {
+  ${SearchInput}:focus:valid ~ & {
     opacity: 1;
     visibility: visible;
   }
@@ -246,4 +245,5 @@ export const DarkLabel = styled.label`
   padding: 5px 8px 5px 0;
   font-size: 1.2rem;
   color: ${({ theme }) => theme.subTextColor};
+  font-family: "Poppins";
 `;

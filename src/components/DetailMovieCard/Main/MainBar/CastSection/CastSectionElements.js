@@ -36,6 +36,10 @@ export const Cast = styled.div`
   background-color: ${({ theme }) => theme.primary};
   margin: 0px 4px 10px 10px;
   overflow: hidden;
+
+  &:last-child {
+    margin: 0px 10px 10px 10px;
+  }
 `;
 
 export const PhotoWrapper = styled(Link)`

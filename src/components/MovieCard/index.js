@@ -1,23 +1,14 @@
 import React from "react";
-import {
-  Container,
-  MovieName,
-  Poster,
-  Wrapper,
-  OverLay,
-  PlayButton,
-  Button,
-} from "./MovieCard";
+import { Container, MovieName, Poster, Wrapper, OverLay, PlayButton, Button } from "./MovieCard";
 import { Icon } from "@iconify/react";
 
-export default function MovieCard({ size, movie, type }) {
+export default function MovieCard({ movie, type }) {
   return (
-    <Container className={size}>
-      <Wrapper to={`${movie.media_type || type}/${movie.id}`}>
+    <Container>
+      <Wrapper to={`/${movie.media_type || type}/${movie.id}`}>
         <Poster
           src={`https://image.tmdb.org/t/p/w500/${movie.poster_path}`}
           alt={`poster ${movie.name || movie.title}`}
-          loading="lazy"
         />
         <OverLay>
           <MovieName>
@@ -27,7 +18,7 @@ export default function MovieCard({ size, movie, type }) {
 
           <PlayButton>
             <Button>
-              <Icon icon="bi:play-fill" />
+              <Icon icon="clarity:play-solid" />
             </Button>
           </PlayButton>
         </OverLay>

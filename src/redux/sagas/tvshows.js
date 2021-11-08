@@ -1,25 +1,36 @@
 import { call, put } from "redux-saga/effects";
 import * as actions from "redux/actions";
-import * as api from "api";
+import tmdbApi, { tvType, category } from "api/tmdbApi";
 
 export function* getTvShowDetail(action) {
   try {
-    const res = yield call(api.TvShowAPI.getTvShowDetail, action.payload);
-    const images = yield call(api.TvShowAPI.getTvShowDetailByType, {
-      tvId: action.payload,
-      type: "images",
-    });
-
-    const videos = yield call(api.TvShowAPI.getTvShowDetailByType, {
-      tvId: action.payload,
-      type: "videos",
-    });
+    const params = { append_to_response: ["credits", "external_ids", "keywords"], language: "vi-VN" };
+    const detail = yield call(tmdbApi.detail, category.tv, action.payload, { params });
+    const images = yield call(tmdbApi.getImages, category.tv, action.payload);
+    const videos = yield call(tmdbApi.getVideos, category.tv, action.payload);
 
     yield put(
       actions.getTvShowDetail.getTvShowDetailSuccess({
-        detail: res.data,
-        images: images.data,
-        videos: videos.data,
+        detail,
+        images,
+        videos,
+      })
+    );
+  } catch (error) {
+    return error;
+  }
+}
+
+export function* fetchTvShowHomePage() {
+  try {
+    const params = { language: "vi-VN" };
+    const trending = yield call(tmdbApi.getTrending, category.tv, { params: {} });
+    const on_the_air = yield call(tmdbApi.getTvList, tvType.on_the_air, { params });
+
+    yield put(
+      actions.getTvShowHomePage.getTvShowHomePageSuccess({
+        trending,
+        onTheAir: on_the_air,
       })
     );
   } catch (error) {

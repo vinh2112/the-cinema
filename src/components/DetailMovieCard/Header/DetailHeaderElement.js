@@ -46,7 +46,51 @@ export const DetailMovie = styled.div`
   }
 `;
 
+export const PosterSide = styled.div`
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+`;
+
+export const ButtonWrapper = styled.div`
+  margin: 10px auto 0;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  max-width: 300px;
+  width: 100%;
+  padding: 8px 18px;
+  border-radius: 4px;
+  background: -webkit-linear-gradient(var(--linear-gradient));
+  font-size: 20px;
+  color: #fefefe;
+  cursor: pointer;
+  white-space: nowrap;
+  user-select: none;
+  transition: all 0.2s ease;
+
+  &:hover > .iconify {
+    margin-left: 48px;
+    transform: rotate(360deg);
+    transform-origin: center;
+  }
+
+  & > .iconify {
+    margin-left: 12px;
+    font-size: 26px;
+    transition: all 0.6s ease;
+    /* opacity: 0;
+    visibility: hidden; */
+  }
+
+  & > .btn__content {
+    font-weight: 500;
+    font-family: "Poppins";
+  }
+`;
+
 export const PosterWrapper = styled.div`
+  position: relative;
   min-width: 300px;
   width: 300px;
   height: 450px;
@@ -76,7 +120,7 @@ export const Certification = styled.span`
   display: inline-block;
   padding: 5px 10px;
   background: -webkit-linear-gradient(var(--linear-gradient));
-  border-radius: 2px;
+  border-radius: 4px;
   font-size: 20px;
   font-weight: 700;
   color: #fefefe;
@@ -125,7 +169,11 @@ export const GenreLink = styled(Link)`
   }
 `;
 
-export const Rating = styled.div``;
+export const RatingWrapper = styled.div`
+  & .MuiRating-iconEmpty {
+    color: ${({ theme }) => theme.subTextColor};
+  }
+`;
 
 export const Info = styled.div`
   margin-top: 20px;
@@ -146,7 +194,8 @@ export const ProducedBy = styled.div`
   display: grid;
   grid-template-columns: repeat(2, 1fr);
   grid-template-rows: repeat(2, 1fr);
-  gap: 20px;
+  column-gap: 20px;
+  row-gap: 40px;
   margin-top: 20px;
 
   @media (max-width: 800px) {
@@ -158,4 +207,5 @@ export const LogoCompany = styled.img`
   max-height: 50px;
   width: 100%;
   object-fit: contain;
+  user-select: none;
 `;

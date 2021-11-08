@@ -26,6 +26,12 @@ export default function searchReducers(state = INIT_STATE.search, action) {
         isLoading: false,
         data: action.payload.results,
       };
+    case getType(search.searchFailure):
+      return {
+        ...state,
+        isLoading: false,
+        data: undefined,
+      };
     default:
       return state;
   }
