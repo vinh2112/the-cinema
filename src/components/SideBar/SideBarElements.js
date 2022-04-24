@@ -175,6 +175,7 @@ export const ItemLink = styled(Link)`
   display: flex;
   align-items: center;
   font-size: 2rem;
+  color: ${({ theme }) => theme.textColor};
 
   & > .iconify {
     flex-shrink: 0;
@@ -198,6 +199,7 @@ export const ItemLabel = styled.label`
   display: flex;
   align-items: center;
   font-size: 2rem;
+  color: ${({ theme }) => theme.textColor};
 
   & > .name {
     margin-left: 23px;
@@ -285,4 +287,5 @@ export const SubMenuLink = styled(Link)`
   display: block;
   font-size: 1.2rem;
   font-weight: 600;
+  color: ${({ theme }) => theme.textColor};
 `;
