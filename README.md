@@ -1,6 +1,6 @@
 # The CINEMA
 
-The CINEMA là website xem phim, tìm kiếm phim phổ biến theo xu hướng thông qua [The Movie Database (TMDB)][1] **API**
+The CINEMA là website xem phim, tìm kiếm phim phổ biến theo xu hướng thông qua [ The Movie Database (TMDB)][1] **API**
 [1]: https://www.themoviedb.org/documentation/api
 
 ![The CINEMA light](https://github.com/vinh2112/the-cinema/blob/main/src/images/home_light.png)
