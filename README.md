@@ -9,7 +9,7 @@ The CINEMA là website xem phim, tìm kiếm phim phổ biến theo xu hướng 
 
 ## Live Demo
 
-- Bạn có thể xem demo [tại đây](https://vinh2112.github.io/)
+- Bạn có thể xem demo [tại đây](https://the-cinema.netlify.app/)
 
 ### Hướng dẫn chạy The CINEMA
 
